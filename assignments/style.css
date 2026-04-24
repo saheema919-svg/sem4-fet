@@ -1,10 +1,22 @@
-  body{
-  background-color:Cornsilk;
-  }
-  li{
-  font-family: "Times New Roman", Times, serif;
-  }
-  ul{
-  font-family:"Lucida Console", "Courier New", monospace; 
-  }
+body {
+  background-color: cornsilk;
+  font-family: Arial, sans-serif;
+  color: black;
+  text-align: center;
+}
 
+h1 {
+  color: darkblue;
+  text-decoration: underline;
+}
+
+ul {
+  text-align: left;
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+
+li {
+  color: darkred;
+  font-size: 18px;
+}
