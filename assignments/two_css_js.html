@@ -6,7 +6,7 @@
   <body>
     <ol>
       <li> FRONTEND DEVELOPMENT</li>
-      <ul>
+      <ul id="frontendList">
         <li>HTML5</li>
         <li>CSS3</li>
         <li>Javascript</li>
@@ -22,6 +22,21 @@
         <li>GITHUB</li>
         <li>VS CODE</li>
       </ul>
+      <button onclick="changeFrontendList()">Change List</button>
+      <script>
+        function changeFrontendList() {
+          let newTool = prompt("Enter a new Frontend tool name:");
+          if (newTool === null || newTool.trim() === "") {
+            alert("Please enter a tool name!");
+          } else {
+            let list = document.getElementById("frontendList");
+            let item = document.createElement("li");
+            item.textContent = newTool;
+            list.appendChild(item);
+            alert(newTool + " added to the list!");
+          }
+        }
+      </script>
     </ol>
     <a href="https://saheema919-svg.github.io/sem4-fet">My homepage</a>
   </body>
