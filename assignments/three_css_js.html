@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title>Job Application Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: azure;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            width: 550px;
+            margin: auto;
+            padding: 25px;
+            border: 2px solid black;
+            background-color: Azure;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0 10px 0;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        #display {
+            width: 350px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h2>Job Application Form</h2>
+
+<form id="jobForm">
+
+    <label>First Name:</label><br>
+    <input type="text" id="firstname" required><br>
+
+    <label>Last Name:</label><br>
+    <input type="text" id="lastname" required><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="Male" required>Male
+    <input type="radio" name="gender" value="Female">Female<br><br>
+
+    <label>Email:</label><br>
+    <input type="text" id="email" required><br>
+
+    <label>Job Required:</label><br>
+    <select id="job" required>
+        <option value="">Select</option>
+        <option>AI Specialist</option>
+        <option>Software Developer</option>
+        <option>AIML Engineer</option>
+        <option>Full Stack Developer</option>
+    </select><br><br>
+    <label>Qualification:</label><br>
+    <input type="checkbox">Diploma<br> 
+    <input type="checkbox">Bachelors<br>
+    <input type="checkbox">Masters<br>
+    <input type="checkbox">PHD<br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+<!-- DIV to display form data -->
+<div id="display">Filled form will appear here</div>
+
+<script>
+document.getElementById("jobForm").onsubmit = function(e) {
+    e.preventDefault();
+
+    document.getElementById("display").innerHTML =
+        "First Name: " + firstname.value + "<br>" +
+        "Last Name: " + lastname.value + "<br>" +
+        "Gender: " + document.querySelector('input[name="gender"]:checked').value + "<br>" +
+        "Email: " + email.value + "<br>" +
+        "Job: " + job.value;
+};
+</script>
+
+</body>
+</html>
