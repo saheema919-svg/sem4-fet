@@ -2,6 +2,16 @@
 <html>
 <head>
 <style>
+  body{
+    margin:0;
+    height:45vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+   
+  }
   .container {
     position: relative;
     height: 200px;
@@ -46,21 +56,12 @@
 </div>
 
 <script>
-  // This variable keeps track of the highest layer used so far
   let topLayer = 10;
-
   function bringToFront(id) {
-    // 1. Target the clicked box
     const targetBox = document.getElementById(id);
-    
-    // 2. Increment the global counter
     topLayer++;
-    
-    // 3. Set ONLY the clicked box to the new highest value
-    // This leaves the other two exactly where they were relative to each other
     targetBox.style.zIndex = topLayer;
   }
 </script>
-
 </body>
 </html>
