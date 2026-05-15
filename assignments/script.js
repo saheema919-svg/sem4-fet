@@ -1,47 +1,100 @@
-let list = document.getElementById("subjects");
+let savedPassword = "";
+let attempts = 0;
+let isPasswordCreated = false;
 
-function useWhile() {
-    let i = 0;
-    let result = [];
+function handlePassword(){
 
-    while (i < list.options.length) {
-        if (list.options[i].selected) {
-            result.push(list.options[i].value);
+    let passwordBox =
+    document.getElementById("passwordBox");
+
+    let result =
+    document.getElementById("result");
+
+    let button =
+    document.getElementById("mainButton");
+
+    let label =
+    document.getElementById("labelText");
+
+    // Create Password
+    if(isPasswordCreated == false){
+
+        savedPassword = passwordBox.value;
+
+        if(savedPassword == ""){
+
+            result.innerHTML =
+            "<span style='color:red;'>"
+            + "Please create a password"
+            + "</span>";
+
+            return;
         }
-        i++;
+
+        result.innerHTML =
+        "<span style='color:green;font-weight:bold;'>"
+        + "Password Created Successfully<br>"
+        + "Submit Password to Continue"
+        + "</span>";
+
+        passwordBox.value = "";
+
+        passwordBox.placeholder =
+        "Enter Password";
+
+        label.innerHTML =
+        "Enter Password";
+
+        button.innerHTML =
+        "Login";
+
+        isPasswordCreated = true;
+
+        return;
     }
 
-    updateTable("While Loop", result);
-}
+    // Verify Password
+    let userPassword = passwordBox.value;
 
-function useDoWhile() {
-    let i = 0;
-    let result = [];
+    // Do While Loop
+    do{
 
-    if (list.options.length > 0) {
-        do {
-            if (list.options[i].selected) {
-                result.push(list.options[i].value);
-            }
-            i++;
-        } while (i < list.options.length);
+        if(userPassword == savedPassword){
+
+            result.innerHTML =
+            "<span style='color:green;font-weight:bold;'>"
+            + "Correct Password<br><br>"
+            + "Student Name : Renee<br>"
+            + "Department : Computer Science<br>"
+            + "Semester : 4th Semester<br>"
+            + "Status : Active"
+            + "</span>";
+
+            return;
+        }
+
+        attempts++;
+
+        result.innerHTML =
+        "<span style='color:red;font-weight:bold;'>"
+        + "Wrong Password<br>"
+        + "Remaining Attempts : "
+        + (3 - attempts)
+        + "</span>";
+
+    }while(false);
+
+    // While Loop
+    while(attempts >= 3){
+
+        result.innerHTML =
+        "<span style='color:red;font-weight:bold;'>"
+        + "Access Blocked!"
+        + "</span>";
+
+        passwordBox.disabled = true;
+        button.disabled = true;
+
+        break;
     }
-
-    updateTable("Do-While Loop", result);
-}
-
-function updateTable(method, data) {
-    let methodCell = document.getElementById("method");
-    let resultCell = document.getElementById("result");
-
-    methodCell.innerHTML = method;
-    resultCell.innerHTML = data.length ? data.join(", ") : "-";
-
-    methodCell.classList.remove("fade");
-    resultCell.classList.remove("fade");
-
-    void methodCell.offsetWidth;
-
-    methodCell.classList.add("fade");
-    resultCell.classList.add("fade");
 }
