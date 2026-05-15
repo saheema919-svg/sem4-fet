@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loops + External JS</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        .container {
+            background: white;
+            color: black;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 8px;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            font-size: 18px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        .fade {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity:0; transform: translateY(10px);}
+            to {opacity:1; transform: translateY(0);}
+        }
+
+        @media (max-width:600px) {
+            table {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>JavaScript Loops + External File</h2>
+
+<div class="container">
+
+    <label>Select Subjects:</label><br>
+    <select id="subjects" multiple size="4">
+        <option value="Maths">Maths</option>
+        <option value="Physics">Physics</option>
+        <option value="Programming">Programming</option>
+        <option value="Electronics">Electronics</option>
+    </select>
+
+    <br>
+
+    <button onclick="useWhile()">While Loop</button>
+    <button onclick="useDoWhile()">Do-While Loop</button>
+
+    <div style="overflow-x:auto;">
+        <table>
+            <tr>
+                <th>Method Used</th>
+                <th>Selected Subjects</th>
+            </tr>
+            <tr>
+                <td id="method">-</td>
+                <td id="result">-</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<!-- External JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
