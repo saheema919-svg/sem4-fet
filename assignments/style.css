@@ -31,3 +31,17 @@ li {
         cursor:pointer;
         font-size:16px;
       }
+.home {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #42a5f5, #1e88e5);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.home:hover {
+    background: linear-gradient(135deg, #1e88e5, #1565c0);
+    transform: scale(1.05);
+}
