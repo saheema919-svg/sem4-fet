@@ -1,128 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Menus and List Box</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+<title>Pull-Down Menu & List Box</title>
 
-        .card {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 15px;
-            width: 320px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            text-align: center;
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
+        text-align: center;
+        padding: 50px;
+    }
 
-        h2 {
-            margin-bottom: 15px;
-        }
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        width: 420px;
+        margin: auto;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
 
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
-            margin-bottom: 5px;
-        }
+    h1 {
+        color: #0277bd;
+        margin-bottom: 20px;
+    }
 
-        select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            outline: none;
-            transition: 0.3s;
-        }
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 15px;
+    }
 
-        select:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 5px rgba(102,126,234,0.5);
-        }
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
 
-        .output {
-            margin-top: 15px;
-            padding: 12px;
-            background: #f1f3f6;
-            border-radius: 8px;
-            font-size: 14px;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.4s ease;
-        }
+    button {
+        margin-top: 20px;
+        background-color: #0288d1;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
-        /* Animation class */
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    button:hover {
+        background-color: #01579b;
+    }
+
+    p {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+
 </head>
 
 <body>
 
-<div class="card">
+<div class="container">
+    <h1>Menu & List Box Demo</h1>
 
-    <h2>Course Selection</h2>
-
-    <label>Choose Course</label>
-    <select id="course">
-        <option value="">-- Select --</option>
+    <!-- Pull-Down Menu -->
+    <label>Select your Branch:</label>
+    <select id="branchMenu">
+        <option value="">--Choose Branch--</option>
         <option value="CSE">Computer Science</option>
         <option value="ECE">Electronics</option>
         <option value="ME">Mechanical</option>
+        <option value="CE">Civil</option>
     </select>
 
-    <label>Select Subjects</label>
-    <select id="subjects" multiple size="4">
-        <option value="Maths">Maths</option>
-        <option value="Physics">Physics</option>
-        <option value="Programming">Programming</option>
-        <option value="Electronics">Electronics</option>
+    <p id="branchResult"></p>
+
+    <!-- List Box -->
+    <label>Select your Skills:</label>
+    <select id="skillsList" multiple size="5">
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="JavaScript">JavaScript</option>
     </select>
 
-    <div class="output" id="result">
-        Selected values will appear here
-    </div>
+    <button onclick="showSkills()">Show Selected Skills</button>
 
+    <p id="skillsResult"></p>
 </div>
 
 <script>
-let course = document.getElementById("course");
-let subjects = document.getElementById("subjects");
-let result = document.getElementById("result");
+    // Event Listener for Pull-Down Menu
+    document.getElementById("branchMenu").addEventListener("change", function() {
+        let branch = this.value;
 
-// Event listeners
-course.addEventListener("change", display);
-subjects.addEventListener("change", display);
+        if (branch === "") {
+            document.getElementById("branchResult").innerText = "Please select a branch.";
+        } else {
+            document.getElementById("branchResult").innerText = "You selected: " + branch;
+        }
+    });
 
-function display() {
-    let selectedCourse = course.value;
+    // Event Handler for List Box
+    function showSkills() {
+        let list = document.getElementById("skillsList");
+        let selected = [];
 
-    let selectedSubjects = [];
-    for (let option of subjects.options) {
-        if (option.selected) {
-            selectedSubjects.push(option.value);
+        for (let i = 0; i < list.options.length; i++) {
+            if (list.options[i].selected) {
+                selected.push(list.options[i].value);
+            }
+        }
+
+        if (selected.length === 0) {
+            document.getElementById("skillsResult").innerText = "No skills selected.";
+        } else {
+            document.getElementById("skillsResult").innerText =
+                "Selected Skills: " + selected.join(", ");
         }
     }
-
-    result.innerHTML =
-        "<b>Course:</b> " + (selectedCourse || "None") +
-        "<br><b>Subjects:</b> " + (selectedSubjects.length ? selectedSubjects.join(", ") : "None");
-
-    // Restart animation
-    result.classList.remove("show");
-    void result.offsetWidth; // force reflow
-    result.classList.add("show");
-}
 </script>
 
 </body>
