@@ -1,100 +1,45 @@
-let savedPassword = "";
 let attempts = 0;
-let isPasswordCreated = false;
 
 function handlePassword(){
 
-    let passwordBox =
-    document.getElementById("passwordBox");
+    let passwordBox = document.getElementById("passwordBox");
+    let result = document.getElementById("result");
+    let button = document.getElementById("mainButton");
 
-    let result =
-    document.getElementById("result");
+    let userPassword = passwordBox.value.toLowerCase();
 
-    let button =
-    document.getElementById("mainButton");
-
-    let label =
-    document.getElementById("labelText");
-
-    // Create Password
-    if(isPasswordCreated == false){
-
-        savedPassword = passwordBox.value;
-
-        if(savedPassword == ""){
-
-            result.innerHTML =
-            "<span style='color:red;'>"
-            + "Please create a password"
-            + "</span>";
-
-            return;
-        }
+    if(userPassword === "saheema"){
 
         result.innerHTML =
         "<span style='color:green;font-weight:bold;'>"
-        + "Password Created Successfully<br>"
-        + "Submit Password to Continue"
+        + "Login Successful<br><br>"
+        + "Student Name : Saheema<br>"
+        + "Department : Computer Science<br>"
+        + "Semester : 4th Semester<br>"
+        + "Status : Active"
         + "</span>";
 
-        passwordBox.value = "";
-
-        passwordBox.placeholder =
-        "Enter Password";
-
-        label.innerHTML =
-        "Enter Password";
-
-        button.innerHTML =
-        "Login";
-
-        isPasswordCreated = true;
-
-        return;
-    }
-
-    // Verify Password
-    let userPassword = passwordBox.value;
-
-    // Do While Loop
-    do{
-
-        if(userPassword == savedPassword){
-
-            result.innerHTML =
-            "<span style='color:green;font-weight:bold;'>"
-            + "Correct Password<br><br>"
-            + "Student Name : Renee<br>"
-            + "Department : Computer Science<br>"
-            + "Semester : 4th Semester<br>"
-            + "Status : Active"
-            + "</span>";
-
-            return;
-        }
+    } else {
 
         attempts++;
 
-        result.innerHTML =
-        "<span style='color:red;font-weight:bold;'>"
-        + "Wrong Password<br>"
-        + "Remaining Attempts : "
-        + (3 - attempts)
-        + "</span>";
+        if(attempts >= 3){
 
-    }while(false);
+            result.innerHTML =
+            "<span style='color:red;font-weight:bold;'>Access Blocked!</span>";
 
-    // While Loop
-    while(attempts >= 3){
+            passwordBox.disabled = true;
+            button.disabled = true;
 
-        result.innerHTML =
-        "<span style='color:red;font-weight:bold;'>"
-        + "Access Blocked!"
-        + "</span>";
+        } else {
 
-        passwordBox.disabled = true;
-        button.disabled = true;
-
-        break;
+            result.innerHTML =
+            "<span style='color:red;font-weight:bold;'>"
+            + "Wrong Username<br>"
+            + "Remaining Attempts : "
+            + (3 - attempts)
+            + "</span>";
+        }
     }
 }
+</script>
