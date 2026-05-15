@@ -2,111 +2,115 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
     <title>Password Security System</title>
-
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
 
-body{
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#2563eb,#60a5fa);
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
 
-.container{
-    width:100%;
-    max-width:420px;
-    background:#ffffff;
-    padding:35px 30px;
-    border-radius:18px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.2);
-}
+    body{
+        font-family:Arial, sans-serif;
+        background:linear-gradient(135deg,#2563eb,#60a5fa);
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:20px;
+    }
 
-h2{
-    text-align:center;
-    color:#1e3a8a;
-    margin-bottom:25px;
-    font-size:28px;
-}
+    .container{
+        width:100%;
+        max-width:420px;
+        background:#ffffff;
+        padding:35px 30px;
+        border-radius:18px;
+        box-shadow:0 8px 25px rgba(0,0,0,0.2);
+    }
 
-label{
-    display:block;
-    margin-bottom:10px;
-    font-size:16px;
-    font-weight:bold;
-    color:#374151;
-}
+    h2{
+        text-align:center;
+        color:#1e3a8a;
+        margin-bottom:25px;
+        font-size:28px;
+    }
 
-input{
-    width:100%;
-    padding:14px;
-    border:2px solid #bfdbfe;
-    border-radius:10px;
-    font-size:16px;
-    margin-bottom:15px;
-    outline:none;
-    transition:0.3s;
-}
+    label{
+        display:block;
+        margin-bottom:10px;
+        font-size:16px;
+        font-weight:bold;
+        color:#374151;
+    }
 
-input:focus{
-    border-color:#2563eb;
-    box-shadow:0 0 8px rgba(37,99,235,0.3);
-}
+    input{
+        width:100%;
+        padding:14px;
+        border:2px solid #bfdbfe;
+        border-radius:10px;
+        font-size:16px;
+        margin-bottom:15px;
+        outline:none;
+        transition:0.3s;
+    }
 
-button{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    background:#2563eb;
-    color:white;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;
-}
+    input:focus{
+        border-color:#2563eb;
+        box-shadow:0 0 8px rgba(37,99,235,0.3);
+    }
 
-button:hover{
-    background:#1d4ed8;
-}
+    button{
+        width:100%;
+        padding:14px;
+        border:none;
+        border-radius:10px;
+        background:#2563eb;
+        color:white;
+        font-size:17px;
+        font-weight:bold;
+        cursor:pointer;
+        transition:0.3s;
+    }
 
-#result{
+    button:hover{
+        background:#1d4ed8;
+    }
+
+    #result{
     margin-top:20px;
     text-align:center;
     font-size:16px;
     line-height:1.6;
-}
-
-@media(max-width:480px){
-
-    .container{
-        padding:25px 20px;
+    word-wrap:break-word;
     }
 
-    h2{
-        font-size:24px;
+    @media(max-width:480px){
+
+        .container{
+            padding:25px 20px;
+        }
+
+        h2{
+            font-size:24px;
+        }
+
+        input,
+        button{
+            font-size:15px;
+        }
+
+        #result{
+            font-size:15px;
+        }
     }
 
-    input,
-    button{
-        font-size:15px;
-    }
-
-    #result{
-        font-size:15px;
-    }
-}
 </style>
-
+                
 </head>
 
 <body>
@@ -115,12 +119,17 @@ button:hover{
 
     <h2>Password Security System</h2>
 
-    <label>Enter Username</label>
+    <label id="labelText">
+        Create Password
+    </label>
 
-    <input type="password" id="passwordBox" placeholder="Enter Username">
+    <input type="password"
+    id="passwordBox"
+    placeholder="Enter Password">
 
-    <button onclick="handlePassword()" id="mainButton">
-        Login
+    <button onclick="handlePassword()"
+    id="mainButton">
+        Save Password
     </button>
 
     <div id="result"></div>
