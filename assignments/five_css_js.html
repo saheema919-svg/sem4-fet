@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>z-index</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            text-align: center;
+            background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        .container {
+            position: relative;
+            width: 420px;
+            height: 320px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        img {
+            width: 200px;
+            height: 130px;
+            position: absolute;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        }
+
+        /* Better arrangement */
+        #img1 { left: 20px;  top: 20px;  z-index: 1; }
+        #img2 { left: 120px; top: 40px;  z-index: 2; }
+        #img3 { left: 60px;  top: 120px; z-index: 3; }
+        #img4 { left: 180px; top: 140px; z-index: 4; }
+
+        /* Hover effect */
+        img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+        }
+
+        /* Caption */
+        .caption {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            font-size: 12px;
+            color: white;
+            background: rgba(0,0,0,0.5);
+            padding: 2px 6px;
+            border-radius: 5px;
+        }
+
+        .info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Image Stacking using z-index</h2>
+
+<div class="container">
+    <div style="position:relative;">
+        <img id="img1" src="https://picsum.photos/300/200?1">
+        <img id="img2" src="https://picsum.photos/300/200?2">
+        <img id="img3" src="https://picsum.photos/300/200?3">
+        <img id="img4" src="https://picsum.photos/300/200?4">
+    </div>
+</div>
+
+<p class="info">Click any image to bring it to the front</p>
+
+<script>
+let z = 5;
+
+// Click to bring image forward
+document.querySelectorAll("img").forEach(img => {
+    img.addEventListener("click", function() {
+        this.style.zIndex = ++z;
+    });
+});
+</script>
+
+</body>
+</html>
