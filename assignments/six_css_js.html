@@ -1,123 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Loops + External JS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            margin: 0;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+    <title>Password Security System</title>
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        font-family:Arial, sans-serif;
+        background:linear-gradient(135deg,#2563eb,#60a5fa);
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:20px;
+    }
+
+    .container{
+        width:100%;
+        max-width:420px;
+        background:#ffffff;
+        padding:35px 30px;
+        border-radius:18px;
+        box-shadow:0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    h2{
+        text-align:center;
+        color:#1e3a8a;
+        margin-bottom:25px;
+        font-size:28px;
+    }
+
+    label{
+        display:block;
+        margin-bottom:10px;
+        font-size:16px;
+        font-weight:bold;
+        color:#374151;
+    }
+
+    input{
+        width:100%;
+        padding:14px;
+        border:2px solid #bfdbfe;
+        border-radius:10px;
+        font-size:16px;
+        margin-bottom:15px;
+        outline:none;
+        transition:0.3s;
+    }
+
+    input:focus{
+        border-color:#2563eb;
+        box-shadow:0 0 8px rgba(37,99,235,0.3);
+    }
+
+    button{
+        width:100%;
+        padding:14px;
+        border:none;
+        border-radius:10px;
+        background:#2563eb;
+        color:white;
+        font-size:17px;
+        font-weight:bold;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    button:hover{
+        background:#1d4ed8;
+    }
+
+    #result{
+    margin-top:20px;
+    text-align:center;
+    font-size:16px;
+    line-height:1.6;
+    word-wrap:break-word;
+    }
+
+    @media(max-width:480px){
+
+        .container{
+            padding:25px 20px;
         }
 
-        h2 {
-            margin-top: 20px;
+        h2{
+            font-size:24px;
         }
 
-        .container {
-            background: white;
-            color: black;
-            width: 90%;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        input,
+        button{
+            font-size:15px;
         }
 
-        select {
-            width: 80%;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 8px;
-            font-size: 16px;
+        #result{
+            font-size:15px;
         }
+    }
 
-        button {
-            padding: 10px 15px;
-            margin: 8px;
-            border: none;
-            border-radius: 8px;
-            background: #667eea;
-            color: white;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #5a67d8;
-        }
-
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-            font-size: 18px;
-        }
-
-        th, td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background: #667eea;
-            color: white;
-        }
-
-        .fade {
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {opacity:0; transform: translateY(10px);}
-            to {opacity:1; transform: translateY(0);}
-        }
-
-        @media (max-width:600px) {
-            table {
-                font-size: 16px;
-            }
-        }
-    </style>
+</style>
+                
 </head>
 
 <body>
 
-<h2>JavaScript Loops + External File</h2>
-
 <div class="container">
 
-    <label>Select Subjects:</label><br>
-    <select id="subjects" multiple size="4">
-        <option value="Maths">Maths</option>
-        <option value="Physics">Physics</option>
-        <option value="Programming">Programming</option>
-        <option value="Electronics">Electronics</option>
-    </select>
+    <h2>Password Security System</h2>
 
-    <br>
+    <label id="labelText">
+        Create Password
+    </label>
 
-    <button onclick="useWhile()">While Loop</button>
-    <button onclick="useDoWhile()">Do-While Loop</button>
+    <input type="password"
+    id="passwordBox"
+    placeholder="Enter Password">
 
-    <div style="overflow-x:auto;">
-        <table>
-            <tr>
-                <th>Method Used</th>
-                <th>Selected Subjects</th>
-            </tr>
-            <tr>
-                <td id="method">-</td>
-                <td id="result">-</td>
-            </tr>
-        </table>
-    </div>
+    <button onclick="handlePassword()"
+    id="mainButton">
+        Save Password
+    </button>
+
+    <div id="result"></div>
 
 </div>
 
-<!-- External JS -->
 <script src="script.js"></script>
 
 </body>
