@@ -1,20 +1,124 @@
-<html>
-<body style="background-color: lightblue; text-align: center;">
-    <title>Homepage</title>
-    <h1>Welcome to My Page</h1>
-    <p>This is my first webpage.</p>
-    <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/one.html">Assignment one : My Portfolio</a></p>
-    <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/two.html">Assignment two : Tech Blog</a></p>
-    <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/three.html">Assignment three : Project Card Gallery</a></p>
-    <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/four.html">Assignment four : Vedio</a></p>
-    <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/five.html">Assignment five : Skills Matrix</a></p>
-    <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/six.html">Assignment six : Table</a></p>
-    <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/seven.html">Assignment seven : Hire Me</a></p>
-    <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/one_css.html">CSS Assignment one : CSS My Portfolio</a></p>
-    <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/two_css.html">CSS Assignment two : CSS Skills Matrix</a></p>
-     <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/one_css_js.html">JavaScript Assignment One : JavaScript Portfolio</a></p>
-    <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/two_css_js.html">JavaScript Assignment Two: JavaScript Skills Matrix</a></p>
-    <p><a href="https://saheema919-svg.github.io/sem4-fet/assignments/three_css_js.html">JavaScript Assignment Three: JavaScript Form</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Assignment Hub</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Animated Gradient Background */
+body{
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #6a11cb, #2575fc);
+    background-size: 300% 300%;
+    animation: gradientMove 10s ease infinite;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Heading */
+h1{
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+/* Sections */
+.section{
+    margin: 40px 0;
+}
+
+.section h2{
+    margin-bottom: 20px;
+}
+
+/* Grid Layout */
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* Glass Cards */
+.card{
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-10px) scale(1.05);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Links */
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.card:hover a{
+    color: #ffd369;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>✨ My Assignment Hub</h1>
+
+<!-- HTML -->
+<div class="section">
+    <h2>📄 HTML Assignments</h2>
+    <div class="container">
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/one.html">Portfolio</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/two.html">Tech Blog</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/three.html">Project Gallery</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/four.html">Video</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/five.html">Skills Matrix</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/six.html">Table</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/seven.html">Hire Me</a></div>
+    </div>
+</div>
+
+<!-- CSS -->
+<div class="section">
+    <h2>🎨 CSS Assignments</h2>
+    <div class="container">
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/one_css.html">CSS Portfolio</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/two_css.html">CSS Skills Matrix</a></div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<div class="section">
+    <h2>⚡ JavaScript Assignments</h2>
+    <div class="container">
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/one_css_js.html">JS Portfolio</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/two_css_js.html">JS Skills Matrix</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/three_css_js.html">JS Form</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/four_css_js.html">Pulldown Menu</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/five_css_js.html">Z-Index</a></div>
+        <div class="card"><a href="https://saheema919-svg.github.io/sem4-fet/assignments/six_css_js.html">Security System</a></div>
+    </div>
+</div>
+
 </body>
 </html>
-  
