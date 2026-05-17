@@ -1,86 +1,158 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      body{
-        background:linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
-      }
-      .middle{
-        text-align:center;
-        text-indent: 10px;
-        font-family: "Georgia", "Courier New", monospace;
-      }
-      .position{
-        background-position: right top;
-        color:Black;
-        border-left: 6px solid DarkCyan;
-      }
-      .btn{
-        display:block;
-        margin:20px auto;
-        padding:10px 20px;
-        background-color:DarkCyan;
-        color:white;
-        border:none;
-        border-radius:5px;
-        cursor:pointer;
-        font-size:16px;
-      }
-      .btn:hover{
-        background-color:teal;
-      }
-      .home {
-    display: inline-block;
-    padding: 12px 25px;
-    background: linear-gradient(135deg, #42a5f5, #1e88e5);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: 0.3s;
+<head>
+
+<title>My Portfolio</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* BACKGROUND */
+body{
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
+  min-height:100vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+/* GLASS EFFECT CONTAINER */
+.container{
+  max-width:700px;
+  width:100%;
+  padding:35px;
+  border-radius:18px;
+
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border:1px solid rgba(255,255,255,0.3);
+  box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* TEXT */
+.middle{
+  text-align:center;
+  text-indent:10px;
+  font-family: "Georgia", "Courier New", monospace;
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+/* SECTION HEADINGS */
+.position{
+  color:black;
+  border-left:5px solid #00acc1;
+  padding-left:10px;
+  margin-top:15px;
+}
+
+/* MAIN BUTTON */
+.btn{
+  display:block;
+  margin:25px auto;
+  padding:12px 25px;
+  background: linear-gradient(135deg, #42a5f5, #1e88e5);
+  color:white;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+/* HOME BUTTON */
+.home {
+  display:block;
+  margin:10px auto;
+  width:fit-content;
+
+  padding:12px 25px;
+  background: linear-gradient(135deg, #42a5f5, #1e88e5);
+  color:white;
+  text-decoration:none;
+  border-radius:25px;
+  transition:0.3s;
 }
 
 .home:hover {
-    background: linear-gradient(135deg, #1e88e5, #1565c0);
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
-    </style>
 
-    <title>My Portfolio</title>
+/* HEADINGS */
+h1{
+  color:#006064;
+  text-align:center;
+  margin-bottom:10px;
+}
 
-    <script>
-      function changeName() {
-        debugger;
-        let newName = prompt("Enter your name:");
-          document.getElementById("demo").innerHTML = newName;
-          alert("Name changed successfully to " + newName);        
-      }
-    </script>
-  </head>
+h2{
+  text-align:center;
+  margin-bottom:15px;
+}
 
-  <body>
-    <h1 id="demo" style="color:DarkCyan;text-align:center;">SAHEEMA</h1>
+</style>
 
-    <h2 style="text-align:center;">
-      Computer Science and Engineering Student || Second Year
-    </h2>
+<script>
+function changeName() {
+  let newName = prompt("Enter your name:");
+  if(newName){
+    document.getElementById("demo").innerHTML = newName;
+    alert("Name changed successfully to " + newName);
+  }
+}
+</script>
 
-    <p class="middle">
-      I am a passionate Computer Science and Engineering student at Mangalore Institute of Technology and Engineering. 
-      As an aspiring engineer, I enjoy solving problems, building creative projects, and exploring new technologies.
-    </p>
+</head>
 
-    <h3 class="position">Tech Stack:</h3>
+<body>
 
-    <p class="middle">
-      My technical toolkit includes programming languages like C, Python, and Java, along with web technologies such as HTML and CSS. 
-      I am comfortable working with GitHub, Visual Studio Code, and both Windows and Linux environments.
-    </p>
+<div class="container">
 
-    <h3 class="position">About Me:</h3>
+<h1 id="demo">SAHEEMA</h1>
 
-    <p class="middle">
-      Quick learner, curious explorer, problem solver, and always excited to pick up new skills!
-    </p>
-    <button class="btn" onclick="changeName()">Change Name</button>
-    <a href="https://saheema919-svg.github.io/sem4-fet" class="home">Visit My Homepage</a>
-  </body>
+<h2>
+Computer Science and Engineering Student || Second Year
+</h2>
+
+<p class="middle">
+I am a passionate Computer Science and Engineering student at Mangalore Institute of Technology and Engineering. 
+As an aspiring engineer, I enjoy solving problems, building creative projects, and exploring new technologies.
+</p>
+
+<h3 class="position">Tech Stack:</h3>
+
+<p class="middle">
+My technical toolkit includes programming languages like C, Python, and Java, along with web technologies such as HTML and CSS. 
+I am comfortable working with GitHub, Visual Studio Code, and both Windows and Linux environments.
+</p>
+
+<h3 class="position">About Me:</h3>
+
+<p class="middle">
+Quick learner, curious explorer, problem solver, and always excited to pick up new skills!
+</p>
+
+<button class="btn" onclick="changeName()">Change Name</button>
+
+<a href="https://saheema919-svg.github.io/sem4-fet" class="home">
+Visit My Homepage
+</a>
+
+</div>
+
+</body>
 </html>
