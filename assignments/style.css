@@ -1,47 +1,72 @@
 body {
-  background:linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
+  background: linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
   font-family: Arial, sans-serif;
-  color: black;
+  color: #1f2937;
   text-align: center;
+  padding: 20px;
 }
 
+/* HEADING */
 h1 {
-  color: navy;
+  color: #0f172a;
   text-decoration: underline;
+  margin-bottom: 20px;
 }
 
+/* LIST BOX */
 ul {
   text-align: left;
-  border: 2px solid darkgray;
-  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 12px;
+  padding: 15px;
+
+  background: rgba(255,255,255,0.2); /* glass effect */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
+/* LIST ITEMS */
 li {
-  color: darkred;
+  color: #7f1d1d;
   font-size: 18px;
+  margin: 6px 0;
 }
+
+/* BUTTON */
 .btn{
-        display:block;
-        margin:20px auto;
-        padding:10px 20px;
-        background-color:DarkCyan;
-        color:white;
-        border:none;
-        border-radius:5px;
-        cursor:pointer;
-        font-size:16px;
-      }
+  display:block;
+  margin:25px auto;
+  padding:12px 25px;
+
+  background: linear-gradient(135deg, #42a5f5, #1e88e5);
+  color:white;
+
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform: scale(1.05);
+}
+
+/* HOME BUTTON */
 .home {
-    display: inline-block;
-    padding: 12px 25px;
-    background: linear-gradient(135deg, #42a5f5, #1e88e5);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: 0.3s;
+  display: inline-block;
+  margin-top: 15px;
+
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #42a5f5, #1e88e5);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: 0.3s;
 }
 
 .home:hover {
-    background: linear-gradient(135deg, #1e88e5, #1565c0);
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
