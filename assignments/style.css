@@ -1,5 +1,5 @@
 body {
-  background-color:linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
+  background:linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
   font-family: Arial, sans-serif;
   color: black;
   text-align: center;
