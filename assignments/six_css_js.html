@@ -1,120 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Password Security System</title>
+<title>Password Security System</title>
+
 <style>
 
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    body{
-        font-family:Arial, sans-serif;
-        background:linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
-        height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        padding:20px;
-    }
+/* SAME BACKGROUND AS HOMEPAGE */
+body{
+    font-family:Arial, sans-serif;
+    background: linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
+    min-height:100vh;
 
-    .container{
-        width:100%;
-        max-width:420px;
-        background:#ffffff;
-        padding:35px 30px;
-        border-radius:18px;
-        box-shadow:0 8px 25px rgba(0,0,0,0.2);
-    }
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-    h2{
-        text-align:center;
-        color:#1e3a8a;
-        margin-bottom:25px;
-        font-size:28px;
-    }
+/* CONTAINER */
+.container{
+    width:100%;
+    max-width:420px;
+    background:#ffffff;
+    padding:35px 30px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+    min-height:300px; /* prevents jumping */
+}
 
-    label{
-        display:block;
-        margin-bottom:10px;
-        font-size:16px;
-        font-weight:bold;
-        color:#374151;
-    }
+/* HEADING */
+h2{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:25px;
+    font-size:28px;
+}
 
-    input{
-        width:100%;
-        padding:14px;
-        border:2px solid #bfdbfe;
-        border-radius:10px;
-        font-size:16px;
-        margin-bottom:15px;
-        outline:none;
-        transition:0.3s;
-    }
+/* LABEL */
+label{
+    display:block;
+    margin-bottom:10px;
+    font-size:16px;
+    font-weight:bold;
+    color:#374151;
+}
 
-    input:focus{
-        border-color:#2563eb;
-        box-shadow:0 0 8px rgba(37,99,235,0.3);
-    }
+/* INPUT */
+input{
+    width:100%;
+    padding:14px;
+    border:2px solid #bfdbfe;
+    border-radius:10px;
+    font-size:16px;
+    margin-bottom:15px;
+    outline:none;
+    transition:0.3s;
+}
 
-    button{
-        width:100%;
-        padding:14px;
-        border:none;
-        border-radius:10px;
-        background:#2563eb;
-        color:white;
-        font-size:17px;
-        font-weight:bold;
-        cursor:pointer;
-        transition:0.3s;
-    }
+input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 8px rgba(37,99,235,0.3);
+}
 
-    button:hover{
-        background:#1d4ed8;
-    }
+/* BUTTON */
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-    #result{
+button:hover{
+    background:#1d4ed8;
+}
+
+/* RESULT TEXT */
+#result{
     margin-top:20px;
     text-align:center;
     font-size:16px;
     line-height:1.6;
     word-wrap:break-word;
-    }
+}
 
-    @media(max-width:480px){
-
-        .container{
-            padding:25px 20px;
-        }
-
-        h2{
-            font-size:24px;
-        }
-
-        input,
-        button{
-            font-size:15px;
-        }
-
-        #result{
-            font-size:15px;
-        }
-    }
-  .home {
+/* HOME BUTTON */
+.home {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
 
-    display: inline-block;
     padding: 12px 25px;
     background: linear-gradient(135deg, #42a5f5, #1e88e5);
     color: white;
@@ -123,14 +112,33 @@
     transition: 0.3s;
 }
 
+/* FIXED HOVER (NO SHIFT) */
 .home:hover {
     background: linear-gradient(135deg, #1e88e5, #1565c0);
-    transform: scale(1.05);
+    transform: translateX(-50%) scale(1.05);
 }
-    
+
+/* RESPONSIVE */
+@media(max-width:480px){
+    .container{
+        padding:25px 20px;
+    }
+
+    h2{
+        font-size:24px;
+    }
+
+    input,
+    button{
+        font-size:15px;
+    }
+
+    #result{
+        font-size:15px;
+    }
+}
 
 </style>
-                
 </head>
 
 <body>
@@ -139,16 +147,11 @@
 
     <h2>Password Security System</h2>
 
-    <label id="labelText">
-        Create Password
-    </label>
+    <label id="labelText">Create Password</label>
 
-    <input type="password"
-    id="passwordBox"
-    placeholder="Enter Password">
+    <input type="password" id="passwordBox" placeholder="Enter Password">
 
-    <button onclick="handlePassword()"
-    id="mainButton">
+    <button onclick="handlePassword()" id="mainButton">
         Save Password
     </button>
 
@@ -157,6 +160,10 @@
 </div>
 
 <script src="script.js"></script>
-<a href="https://saheema919-svg.github.io/sem4-fet" class="home">Visit My Homepage</a>
+
+<a href="https://saheema919-svg.github.io/sem4-fet" class="home">
+    Visit My Homepage
+</a>
+
 </body>
 </html>
