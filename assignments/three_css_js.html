@@ -1,57 +1,119 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Job Application Form</title>
 
     <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
         body {
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
+            min-height:100vh;
+
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            padding:20px;
         }
 
         h2 {
             text-align: center;
+            margin-bottom:20px;
+            color:#0f172a;
         }
 
+        /* GLASS FORM */
         form {
-            width: 550px;
-            margin: auto;
-            padding: 25px;
-            border: 2px solid black;
-            background-color: Azure;
+            width:100%;
+            max-width:550px;
+            padding:30px;
+
+            border-radius:18px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            border:1px solid rgba(255,255,255,0.3);
+            box-shadow:0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        label {
+            font-weight:bold;
+            color:#1f2937;
         }
 
         input, select {
             width: 100%;
-            padding: 5px;
-            margin: 5px 0 10px 0;
+            padding:10px;
+            margin:6px 0 12px 0;
+
+            border-radius:8px;
+            border:1px solid #93c5fd;
+            outline:none;
+        }
+
+        input:focus, select:focus{
+            border-color:#2563eb;
+            box-shadow:0 0 6px rgba(37,99,235,0.3);
         }
 
         input[type="radio"],
         input[type="checkbox"] {
             width: auto;
+            margin-right:5px;
         }
 
+        /* SUBMIT BUTTON */
+        input[type="submit"]{
+            background: linear-gradient(135deg, #42a5f5, #1e88e5);
+            color:white;
+            font-weight:bold;
+            cursor:pointer;
+            border:none;
+            transition:0.3s;
+        }
+
+        input[type="submit"]:hover{
+            transform:scale(1.05);
+        }
+
+        /* DISPLAY BOX */
         #display {
-            width: 350px;
-            margin: 20px auto;
-            padding: 10px;
-            border: 1px solid black;
-            background-color: white;
-        }
-        .home {
-    display: inline-block;
-    padding: 12px 25px;
-    background: linear-gradient(135deg, #42a5f5, #1e88e5);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: 0.3s;
-}
+            width:100%;
+            max-width:500px;
+            margin:20px auto;
+            padding:15px;
 
-.home:hover {
-    background: linear-gradient(135deg, #1e88e5, #1565c0);
-    transform: scale(1.05);
-}
+            border-radius:12px;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(8px);
+
+            box-shadow:0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        /* HOME BUTTON */
+        .home {
+            margin-top:15px;
+            display:inline-block;
+            padding:12px 25px;
+
+            background: linear-gradient(135deg, #42a5f5, #1e88e5);
+            color:white;
+            text-decoration:none;
+            border-radius:25px;
+            transition:0.3s;
+        }
+
+        .home:hover {
+            transform: scale(1.05);
+        }
+
     </style>
 
 </head>
@@ -62,52 +124,64 @@
 
 <form id="jobForm">
 
-    <label>First Name:</label><br>
-    <input type="text" id="firstname" required><br>
+    <label>First Name:</label>
+    <input type="text" id="firstname" required>
 
-    <label>Last Name:</label><br>
-    <input type="text" id="lastname" required><br>
+    <label>Last Name:</label>
+    <input type="text" id="lastname" required>
 
     <label>Gender:</label><br>
     <input type="radio" name="gender" value="Male" required>Male
-    <input type="radio" name="gender" value="Female">Female<br><br>
+    <input type="radio" name="gender" value="Female">Female
+    <br><br>
 
-    <label>Email:</label><br>
-    <input type="text" id="email" required><br>
+    <label>Email:</label>
+    <input type="email" id="email" required>
 
-    <label>Job Required:</label><br>
+    <label>Job Required:</label>
     <select id="job" required>
         <option value="">Select</option>
         <option>AI Specialist</option>
         <option>Software Developer</option>
         <option>AIML Engineer</option>
         <option>Full Stack Developer</option>
-    </select><br><br>
+    </select>
+
     <label>Qualification:</label><br>
-    <input type="checkbox">Diploma<br> 
-    <input type="checkbox">Bachelors<br>
-    <input type="checkbox">Masters<br>
-    <input type="checkbox">PHD<br><br>
+    <input type="checkbox" value="Diploma">Diploma<br> 
+    <input type="checkbox" value="Bachelors">Bachelors<br>
+    <input type="checkbox" value="Masters">Masters<br>
+    <input type="checkbox" value="PHD">PHD<br><br>
 
     <input type="submit" value="Submit">
 
 </form>
 
-<!-- DIV to display form data -->
+<!-- DISPLAY -->
 <div id="display">Filled form will appear here</div>
+
+<a href="https://saheema919-svg.github.io/sem4-fet" class="home">
+Visit My Homepage
+</a>
 
 <script>
 document.getElementById("jobForm").onsubmit = function(e) {
     e.preventDefault();
 
+    let gender = document.querySelector('input[name="gender"]:checked');
+    if(!gender){
+        alert("Please select gender");
+        return;
+    }
+
     document.getElementById("display").innerHTML =
-        "First Name: " + firstname.value + "<br>" +
-        "Last Name: " + lastname.value + "<br>" +
-        "Gender: " + document.querySelector('input[name="gender"]:checked').value + "<br>" +
-        "Email: " + email.value + "<br>" +
-        "Job: " + job.value;
+        "<b>First Name:</b> " + firstname.value + "<br>" +
+        "<b>Last Name:</b> " + lastname.value + "<br>" +
+        "<b>Gender:</b> " + gender.value + "<br>" +
+        "<b>Email:</b> " + email.value + "<br>" +
+        "<b>Job:</b> " + job.value;
 };
 </script>
-<a href="https://saheema919-svg.github.io/sem4-fet" class="home">Visit My Homepage</a>
+
 </body>
 </html>
