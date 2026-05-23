@@ -5,55 +5,94 @@
   <style>
     body {
       background: linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
-      font-family: Arial;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Main Box */
+    .container {
+      background: white;
+      padding: 80px;
+      width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       text-align: center;
-      margin-top: 50px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
     }
 
     input {
       padding: 8px;
+      width: 65%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
 
     button {
-      background-color:white;
-      color:black;
-      padding: 8px;
+      background-color: #0288d1;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0277bd;
     }
 
     ul {
-      width: 300px;
-      margin: 20px auto;
       padding: 0;
+      margin-top: 20px;
     }
 
     li {
-      margin: 10px;
       list-style: none;
-      text-align: left;
+      background: #f5f5f5;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .done {
       text-decoration: line-through;
       color: gray;
     }
+
+    .delete-btn {
+      background: red;
+      padding: 5px 8px;
+      font-size: 12px;
+    }
   </style>
 </head>
 
 <body>
 
-  <h2>To Do List</h2>
+  <div class="container">
+    <h2>To Do List</h2>
 
-  <input type="text" id="task" placeholder="Enter task">
-  <button onclick="addTask()">Add</button>
+    <input type="text" id="task" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
 
-  <ul id="list"></ul>
+    <ul id="list"></ul>
+  </div>
 
   <script>
     function addTask() {
 
-      let task = document.getElementById("task").value;
+      let task = document.getElementById("task").value.trim();
 
-      if (task == "") {
+      if (task === "") {
         alert("Enter a task");
         return;
       }
@@ -61,8 +100,14 @@
       let li = document.createElement("li");
 
       li.innerHTML = `
-        <input type="checkbox" onchange="markDone(this)">
-        <span>${task}</span>
+        <div>
+          <input type="checkbox" onchange="markDone(this)">
+          <span>${task}</span>
+        </div>
+
+        <button class="delete-btn" onclick="deleteTask(this)">
+          Delete
+        </button>
       `;
 
       document.getElementById("list").appendChild(li);
@@ -79,6 +124,10 @@
       } else {
         text.classList.remove("done");
       }
+    }
+
+    function deleteTask(button) {
+      button.parentElement.remove();
     }
   </script>
 
