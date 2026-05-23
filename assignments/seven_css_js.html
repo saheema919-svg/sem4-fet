@@ -1,0 +1,86 @@
+<html>
+<head>
+  <title>To Do List</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0f7ff, #b3e5fc, #81d4fa);
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    input {
+      padding: 8px;
+    }
+
+    button {
+      background-color:white;
+      color:black;
+      padding: 8px;
+    }
+
+    ul {
+      width: 300px;
+      margin: 20px auto;
+      padding: 0;
+    }
+
+    li {
+      margin: 10px;
+      list-style: none;
+      text-align: left;
+    }
+
+    .done {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>To Do List</h2>
+
+  <input type="text" id="task" placeholder="Enter task">
+  <button onclick="addTask()">Add</button>
+
+  <ul id="list"></ul>
+
+  <script>
+    function addTask() {
+
+      let task = document.getElementById("task").value;
+
+      if (task == "") {
+        alert("Enter a task");
+        return;
+      }
+
+      let li = document.createElement("li");
+
+      li.innerHTML = `
+        <input type="checkbox" onchange="markDone(this)">
+        <span>${task}</span>
+      `;
+
+      document.getElementById("list").appendChild(li);
+
+      document.getElementById("task").value = "";
+    }
+
+    function markDone(checkbox) {
+
+      let text = checkbox.nextElementSibling;
+
+      if (checkbox.checked) {
+        text.classList.add("done");
+      } else {
+        text.classList.remove("done");
+      }
+    }
+  </script>
+
+</body>
+</html>
